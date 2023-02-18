@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Balaqai</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="email_or_phone">Email address/Phone number</string>
+    <string name="password">Password</string>
+    <string name="go">Go</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="don_t_have_account_yet">Don’t have account yet?</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="fullname">FullName</string>
+    <string name="login">Login</string>
+    <string name="do_you_have_account">Do you have account?</string>
+    <string name="checkBox_text">By proceeding, you agree to our user agreement and privacy policy</string>
+    <string name="email_address">Email address</string>
+    <string name="mobail_number">Mobile number</string>
+    <string name="email_address_verify_code">Verification code</string>
+    <string name="email_text"><b>Enter your email to continue</b>\n\nWe’ll  send you an <b>OTP</b> to verify.</string>
+    <string name="number_text"><b>Enter your mobile number to continue</b>\n\nWe’ll  send you an <b>OTP</b> to verify.</string>
+    <string name="email_verification_code">Input the code sent to your email address</string>
+    <string name="number_verification_code">Input the code sent to your mobile number</string>
+    <string name="continue_btn">CONTINUE</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="new_passord_text">Please enter a new password</string>
+    <string name="submit">SUBMIT</string>
+</resources>
