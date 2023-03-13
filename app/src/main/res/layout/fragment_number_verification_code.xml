@@ -4,109 +4,81 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bacgroud_log_reg"
+    android:background="@drawable/gradient_background"
     android:orientation="vertical"
     tools:context=".authorization.LoginFragment"
     android:layout_gravity="center">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="250dp"
-        android:layout_height="150dp"
-        android:orientation="horizontal"
-        android:layout_gravity="center">
-
-        <ImageView
-            android:id="@+id/dombra"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:src="@drawable/dombra2"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <ImageView
-            android:layout_width="200dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="-40dp"
-            android:layout_marginTop="35dp"
-            android:src="@drawable/balaqai"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/dombra"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="50dp">
 
+        <ImageView
+            android:id="@+id/balaqai"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="76dp"
+            android:src="@drawable/balaqaiword1x"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.072" />
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_width="290dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="84dp"
             android:text="@string/number_verification_code"
-            android:textSize="17sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/code_from_email"
-            app:layout_constraintHorizontal_bias="0.294"
-            app:layout_constraintStart_toStartOf="@+id/code_from_email"
-            app:layout_constraintTop_toTopOf="parent" />
+            style="@style/textStyles"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/balaqai" />
+
 
         <EditText
-            android:id="@+id/code_from_email"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="55dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginRight="55dp"
-            android:background="@drawable/recovery_email_edit_text"
-            android:hint="@string/email_address_verify_code"
-            android:inputType="textEmailAddress"
+            android:id="@+id/et_recover_email"
+            android:layout_width="290dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/edit_text_style"
+            android:hint="@string/verify_code"
             android:padding="12dp"
             android:textStyle="bold"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-
         <TextView
-            android:id="@+id/tv_toEmailBtn"
+            android:id="@+id/tvToEmailBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="use mail  instead"
-            android:textColor="@color/purple_500"
-            android:textSize="16sp"
-            android:textStyle="bold"
             android:layout_margin="10dp"
+            android:text="@string/with_email"
+            android:textColor="@color/purple_500"
+            style="@style/textStyles"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/code_from_email" />
+            app:layout_constraintTop_toBottomOf="@+id/et_recover_email" />
 
         <Button
             android:id="@+id/button_continue"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="55dp"
-            android:layout_marginRight="55dp"
-            android:background="@drawable/button_style"
+            android:layout_width="290dp"
+            android:layout_height="48dp"
+            android:background="@drawable/button_style_green"
+            android:textColor="@color/white"
             android:text="@string/continue_btn"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.504"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_toEmailBtn"
-            app:layout_constraintVertical_bias="0.75" />
+            app:layout_constraintTop_toBottomOf="@+id/tvToEmailBtn"
+            app:layout_constraintVertical_bias="0.542" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </LinearLayout>

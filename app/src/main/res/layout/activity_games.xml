@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/game_back2"
+    tools:context=".game.GamesActivity">
+
+
+    <LinearLayout
+        android:id="@+id/btn_open_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/user_style"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingRight="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/user_ic" />
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ribeye"
+            android:text="Ardak"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/settings"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="28dp"
+        android:background="#80FFFFFF"
+        android:elevation="50dp"
+        android:src="@drawable/ic_settings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/images_settings" />
+
+    <LinearLayout
+        android:id="@+id/settingsPicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="-15dp"
+        android:background="@drawable/user_style"
+        android:orientation="horizontal"
+        android:paddingLeft="3dp"
+        android:paddingRight="15dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/settings"
+        app:layout_constraintEnd_toStartOf="@+id/settings"
+        app:layout_constraintTop_toTopOf="@+id/settings">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/imBell"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:background="@null"
+                    app:srcCompat="@drawable/ic_bell" />
+
+                <ImageButton
+                    android:id="@+id/imSound"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:background="@null"
+                    app:srcCompat="@drawable/ic_sound" />
+
+                <ImageButton
+                    android:id="@+id/imGuitar"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:background="@null"
+                    app:srcCompat="@drawable/ic_guitar" />
+
+                <ImageButton
+                    android:id="@+id/imExit"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:background="@null"
+                    app:srcCompat="@drawable/ic_goout" />
+            </TableRow>
+
+        </TableLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_traditions"
+        android:layout_width="150dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/button_style_tradition_transparent"
+        android:fontFamily="@font/raleway_extrabold"
+        android:paddingRight="30dp"
+        android:text="@string/traditions"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_games"
+        android:layout_width="135dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="-40dp"
+        android:background="@drawable/button_style_games_opened"
+        android:fontFamily="@font/raleway_extrabold"
+        android:text="@string/games"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_traditions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/btn_traditions"
+        app:layout_constraintTop_toTopOf="@+id/btn_traditions"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_games"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/whatisinImgLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/game_layout_style"
+                android:backgroundTint="#3DD379"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/whatisinImgLayoutConst"
+                    android:layout_width="250dp"
+                    android:layout_height="350dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/game_inner_layout_style">
+
+                    <TextView
+                        android:id="@+id/tvWhatisInImg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginRight="10dp"
+                        android:fontFamily="@font/nunito_sans_bold"
+                        android:text="@string/what_in_peacture"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <RatingBar
+                        android:id="@+id/ratingBarWhatIsInImg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:numStars="5"
+                        android:progressTint="@color/holoOrangeDark"
+                        android:rating="3"
+                        android:stepSize="0.25"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvWhatisInImg" />
+
+                    <ProgressBar
+                        android:id="@+id/progressBarWhatIsInImg"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="10dp"
+                        android:progress="80"
+                        android:progressDrawable="@drawable/custom_progressbar_bg"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/ratingBarWhatIsInImg" />
+
+                    <ImageView
+                        android:id="@+id/imWhatIsInImg"
+                        android:layout_width="185dp"
+                        android:layout_height="150dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="20dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/progressBarWhatIsInImg"
+                        app:layout_constraintVertical_bias="0.666"
+                        app:srcCompat="@drawable/sun" />
+
+                    <ImageView
+                        android:id="@+id/imWhatIsInImgSound"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.216"
+                        app:layout_constraintStart_toEndOf="@+id/imWhatIsInImg"
+                        app:layout_constraintTop_toBottomOf="@+id/progressBarWhatIsInImg"
+                        app:layout_constraintVertical_bias="0.497"
+                        app:srcCompat="@drawable/sound_game" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/hiddenThingsLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/game_layout_style"
+                android:backgroundTint="#FF9999"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/hiddenThingsLayoutConst"
+                    android:layout_width="250dp"
+                    android:layout_height="350dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/game_inner_layout_style">
+
+                    <TextView
+                        android:id="@+id/tvHiddenThings"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginRight="10dp"
+                        android:fontFamily="@font/nunito_sans_bold"
+                        android:text="@string/hidden_things"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <RatingBar
+                        android:id="@+id/ratingBarHiddenThings"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:numStars="5"
+                        android:progressTint="@color/holoOrangeDark"
+                        android:rating="3"
+                        android:stepSize="0.25"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvHiddenThings" />
+
+                    <ProgressBar
+                        android:id="@+id/progressBarHiddenThings"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="10dp"
+                        android:progress="80"
+                        android:progressDrawable="@drawable/custom_progressbar_bg"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/ratingBarHiddenThings" />
+
+                    <ImageView
+                        android:id="@+id/imHiddenThings"
+                        android:layout_width="178dp"
+                        android:layout_height="150dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="20dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/progressBarHiddenThings"
+                        app:layout_constraintVertical_bias="1.0"
+                        app:srcCompat="@drawable/hidden_things_img" />
+
+                    <ImageView
+                        android:id="@+id/imHiddenThingsSound"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.333"
+                        app:layout_constraintStart_toEndOf="@+id/imHiddenThings"
+                        app:layout_constraintTop_toBottomOf="@+id/progressBarHiddenThings"
+                        app:layout_constraintVertical_bias="0.58"
+                        app:srcCompat="@drawable/sound_game" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/aliAndAyyaLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/game_layout_style"
+                android:backgroundTint="#3DD3D3"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/aliAndAyyaLayoutConstr"
+                    android:layout_width="250dp"
+                    android:layout_height="350dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/game_inner_layout_style">
+
+                    <TextView
+                        android:id="@+id/tvAliAndAyya"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginRight="10dp"
+                        android:fontFamily="@font/nunito_sans_bold"
+                        android:text="@string/AliAndAyya"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <RatingBar
+                        android:id="@+id/ratingBarAliAndAyya"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:numStars="5"
+                        android:progressTint="@color/holoOrangeDark"
+                        android:rating="3"
+                        android:stepSize="0.25"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvAliAndAyya" />
+
+                    <ProgressBar
+                        android:id="@+id/progressBarAliAndAyya"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="10dp"
+                        android:progress="80"
+                        android:progressDrawable="@drawable/custom_progressbar_bg"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/ratingBarAliAndAyya" />
+
+                    <ImageView
+                        android:id="@+id/imAliAndAyya"
+                        android:layout_width="185dp"
+                        android:layout_height="156dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="20dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/progressBarAliAndAyya"
+                        app:layout_constraintVertical_bias="0.05"
+                        app:srcCompat="@drawable/ali_and_ayya_img" />
+
+                    <ImageView
+                        android:id="@+id/imAliAndAyyaSound"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.545"
+                        app:layout_constraintStart_toEndOf="@+id/imAliAndAyya"
+                        app:layout_constraintTop_toBottomOf="@+id/progressBarAliAndAyya"
+                        app:layout_constraintVertical_bias="0.597"
+                        app:srcCompat="@drawable/sound_game" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/collateLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/game_layout_style"
+                android:backgroundTint="#A192BB"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/collateLayoutConst"
+                    android:layout_width="250dp"
+                    android:layout_height="350dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/game_inner_layout_style">
+
+                    <TextView
+                        android:id="@+id/tvCollate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginRight="10dp"
+                        android:fontFamily="@font/nunito_sans_bold"
+                        android:text="@string/collate"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <RatingBar
+                        android:id="@+id/ratingBarCollate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:numStars="5"
+                        android:progressTint="@color/holoOrangeDark"
+                        android:rating="3"
+                        android:stepSize="0.25"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvCollate" />
+
+                    <ProgressBar
+                        android:id="@+id/progressBarCollate"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="10dp"
+                        android:progress="80"
+                        android:progressDrawable="@drawable/custom_progressbar_bg"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/ratingBarCollate" />
+
+                    <ImageView
+                        android:id="@+id/imCollate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="150dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="20dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/progressBarCollate"
+                        app:layout_constraintVertical_bias="0.289"
+                        app:srcCompat="@drawable/collate_img" />
+
+                    <ImageView
+                        android:id="@+id/imCollateSound"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.666"
+                        app:layout_constraintStart_toEndOf="@+id/imCollate"
+                        app:layout_constraintTop_toBottomOf="@+id/progressBarCollate"
+                        app:layout_constraintVertical_bias="0.588"
+                        app:srcCompat="@drawable/sound_game" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="450dp"
+        android:layout_marginTop="-100dp"
+        android:src="@drawable/salem_bala_img"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <!--    <androidx.appcompat.widget.AppCompatButton-->
+<!--        android:id="@+id/startGameButton"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="20dp"-->
+<!--        android:layout_marginEnd="20dp"-->
+<!--        android:layout_marginBottom="20dp"-->
+<!--        android:background="@drawable/round_back_reed20"-->
+<!--        android:fontFamily="@font/nunito_sans_bold"-->
+<!--        android:text="@string/start_game"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textSize="18sp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/imageView4" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

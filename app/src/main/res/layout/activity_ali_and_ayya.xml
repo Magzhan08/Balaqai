@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#D096C0"
+    tools:context=".game.AliAndAyyaActivity">
+
+    <ImageView
+        android:id="@+id/back_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/back_ic_game"
+        android:layout_marginTop="50dp"
+        />
+
+    <TextView
+        android:id="@+id/topicName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/nunito_sans_bold"
+        android:text="@string/AliAndAyya"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/questions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/topicName"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="177dp"
+        android:layout_marginEnd="191dp"
+        android:fontFamily="@font/nunito_sans_bold"
+        android:text="1/10"
+        android:textColor="@color/white"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/questions"
+        android:layout_marginStart="64dp"
+        android:layout_toEndOf="@+id/back_icon"
+        android:fontFamily="@font/nunito_sans_bold"
+        android:text="Questions will be here..."
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+    <ImageView
+        android:id="@+id/sound_ques"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="20dp"
+        android:layout_toEndOf="@+id/question"
+        android:src="@drawable/sound_game_png" />
+
+    <LinearLayout
+        android:id="@+id/layout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/back_icon"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:weightSum="2">
+
+        <LinearLayout
+            android:id="@+id/option1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="25dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/round_back_white_10"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="180dp"
+                android:src="@drawable/baraban"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/option2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="25dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/round_back_white_10"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="180dp"
+                android:src="@drawable/kobuz_game"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/layout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/layout1"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:weightSum="2">
+
+        <LinearLayout
+            android:id="@+id/option3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="25dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/round_back_white_10"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="180dp"
+                android:src="@drawable/subuzgu_game"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/option4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="25dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/round_back_white_10"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="180dp"
+                android:src="@drawable/dombira_game"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/next_question_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout2"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="110dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/round_back_game_next"
+        android:text="@string/next"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

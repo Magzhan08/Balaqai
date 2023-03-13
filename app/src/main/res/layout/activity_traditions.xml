@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".traditions.TraditionsActivity">
+
+    <LinearLayout
+        android:id="@+id/btn_open_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/user_style"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingRight="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/user_ic" />
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ribeye"
+            android:text="Ardak"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/settings"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="28dp"
+        android:background="#80FFFFFF"
+        android:elevation="50dp"
+        android:src="@drawable/ic_settings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/images_settings" />
+    <LinearLayout
+        android:id="@+id/settingsPicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="-15dp"
+        android:background="@drawable/user_style"
+        android:orientation="horizontal"
+        android:paddingLeft="3dp"
+        android:paddingRight="15dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/settings"
+        app:layout_constraintEnd_toStartOf="@+id/settings"
+        app:layout_constraintTop_toTopOf="@+id/settings">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/imBell"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:background="@null"
+                    app:srcCompat="@drawable/ic_bell" />
+
+                <ImageButton
+                    android:id="@+id/imSound"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:background="@null"
+                    app:srcCompat="@drawable/ic_sound" />
+
+                <ImageButton
+                    android:id="@+id/imGuitar"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:background="@null"
+                    app:srcCompat="@drawable/ic_guitar" />
+
+                <ImageButton
+                    android:id="@+id/imExit"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:background="@null"
+                    app:srcCompat="@drawable/ic_goout" />
+            </TableRow>
+
+        </TableLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_games"
+        android:layout_width="150dp"
+        android:layout_height="48dp"
+        android:paddingLeft="15dp"
+        android:layout_marginLeft="-30dp"
+        android:background="@drawable/button_style_games"
+        android:text="@string/games"
+        android:fontFamily="@font/raleway_extrabold"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_traditions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/btn_traditions"
+        app:layout_constraintTop_toTopOf="@+id/btn_traditions"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btn_traditions"
+        android:layout_width="135dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/button_style_tradition"
+        android:fontFamily="@font/raleway_extrabold"
+        android:text="@string/traditions"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcViewTr"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_traditions" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

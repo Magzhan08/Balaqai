@@ -7,5 +7,14 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="holoOrangeDark">#ffff8800</color>
     <color name="bacgroud_log_reg">#36212B</color>
+    <color name="yellow">#FFF95F</color>
+    <color name="white_settings_btn">#E2DAD9</color>
+    <color name="custom_circle_color">#D9D9D9</color>
+    <color name="fioletovi">#461D8D</color>
+    <color name="ligth_gray">#D9D9D9</color>
+    <color name="color_green">#1F331A</color>
+    <color name="text_color">#9F0000</color>
+
 </resources>

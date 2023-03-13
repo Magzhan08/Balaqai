@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center_horizontal"
+    tools:context=".game.WhatIsInImgActivity">
+
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:src="@drawable/back" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/btnBack"
+        android:layout_alignBottom="@+id/btnBack"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="-4dp"
+        android:layout_marginBottom="3dp"
+        android:layout_toEndOf="@+id/btnBack"
+        android:background="@drawable/round_back_tv"
+        android:fontFamily="@font/nunito_sans_bold"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp"
+        android:text="Суретте не көрсетілген?"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_below="@id/textView4"
+        android:orientation="vertical"
+        android:layout_above="@id/btnSubmit">
+
+
+        <ImageView
+            android:id="@+id/imLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:src="@drawable/dombira" />
+
+        <GridView
+            android:id="@+id/gridViewAnswer"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:horizontalSpacing="4dp"
+            android:numColumns="auto_fit"
+            android:columnWidth="45dp"
+            android:padding="4dp"
+            android:scrollbars="none"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="4dp" />
+
+        <GridView
+            android:id="@+id/gridViewSuggest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center"
+            android:columnWidth="46dp"
+            android:horizontalSpacing="4dp"
+            android:numColumns="auto_fit"
+            android:padding="4dp"
+            android:scrollbars="none"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="4dp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:fontFamily="@font/nunito_sans_bold"
+        android:textSize="24sp"
+        android:background="@drawable/btn_continue_game"
+        android:layout_margin="20dp"
+        android:text="@string/continue_btn"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

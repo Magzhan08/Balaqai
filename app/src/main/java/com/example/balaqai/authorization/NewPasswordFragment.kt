@@ -6,16 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.balaqai.R
+import com.example.balaqai.databinding.FragmentNewPasswordBinding
 
 class NewPasswordFragment : Fragment() {
+    private lateinit var binding: FragmentNewPasswordBinding
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_new_password, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        binding = FragmentNewPasswordBinding.inflate(inflater,container,false)
+        return binding.root
     }
+
     companion object {
 
         @JvmStatic
