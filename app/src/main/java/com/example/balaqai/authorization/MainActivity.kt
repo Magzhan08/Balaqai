@@ -1,8 +1,8 @@
-package com.example.balaqai
+package com.example.balaqai.authorization
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.balaqai.authorization.LoginFragment
+import com.example.balaqai.R
 import com.example.balaqai.utils.FragmentManager
 
 class MainActivity : AppCompatActivity() {

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import com.example.balaqai.databinding.FragmentLoginBinding
+import com.example.balaqai.traditions.TraditionsGroupsFragment
 import com.example.balaqai.utils.FragmentManager
 
 
@@ -26,6 +27,9 @@ class LoginFragment : Fragment() {
         }
         binding.forgotPassword.setOnClickListener {
             FragmentManager.setFragment(RecoveryByEmailFragment.newInstance(),activity as AppCompatActivity)
+        }
+        binding.buttonGo.setOnClickListener {
+            FragmentManager.setFragment(TraditionsGroupsFragment.newInstance(),activity as AppCompatActivity)
         }
     }
 

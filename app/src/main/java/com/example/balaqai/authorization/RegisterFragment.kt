@@ -25,6 +25,9 @@ class RegisterFragment : Fragment() {
         binding.loginTvBtn.setOnClickListener {
             FragmentManager.setFragment(LoginFragment.newInstance(),activity as AppCompatActivity)
         }
+        binding.buttonSubscribe.setOnClickListener {
+            FragmentManager.setFragment(InfoFragment.newInstance(),activity as AppCompatActivity)
+        }
     }
 
     companion object {
