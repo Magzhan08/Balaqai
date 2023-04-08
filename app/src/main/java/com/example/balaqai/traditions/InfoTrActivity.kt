@@ -7,11 +7,15 @@ import android.os.Bundle
 import android.util.Log
 import android.util.TypedValue
 import android.view.LayoutInflater
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.graphics.drawable.toDrawable
 import com.example.balaqai.R
+import com.example.balaqai.data.Traditions
 import com.example.balaqai.databinding.ActivityInfoTrBinding
 import com.example.balaqai.traditions.adapters.ViewPagerAdapter
+import com.example.balaqai.traditions.data.Tradition
+import com.example.balaqai.utils.TraditionsData
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlin.math.roundToInt
@@ -24,22 +28,43 @@ class InfoTrActivity : AppCompatActivity() {
         ThirdInfoFragment.newInstance()
     )
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityInfoTrBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-        binding.btnBack.setOnClickListener {
-            onBackPressed()
+        if (!intent.hasExtra(EXTRA_NAME_OF_TRADITION) || !intent.hasExtra(EXTRA_NAME_TRADITION_GROUP)){
+            finish()
+            return
         }
+        val nameTradition = intent.getStringExtra(EXTRA_NAME_OF_TRADITION)
+        val nameOfTrGroup = intent.getStringExtra(EXTRA_NAME_TRADITION_GROUP)
+        if (nameOfTrGroup != null) {
+            TraditionsData.getTraditionsGroup(nameOfTrGroup)
+        }
+
+
+        for (tradition in TraditionsData.selectedTraditionList){
+            if (tradition.name == nameTradition){
+                selectedTraditionInfo = tradition
+            }
+        }
+
+
+
         binding.buttonNext.setOnClickListener {
-            val intent = VideoTrActivity.newIntent(this@InfoTrActivity,"SOMETHING")
+            val intent = VideoTrActivity.newIntent(this@InfoTrActivity,nameTradition.toString(),nameOfTrGroup.toString())
             startActivity(intent)
         }
 
-       initVpAdapter()
+            initVpAdapter()
+
+
+
+        binding.btnBack.setOnClickListener {
+            onBackPressed()
+            finish()
+        }
 
     }
 
@@ -47,6 +72,7 @@ class InfoTrActivity : AppCompatActivity() {
     private fun  initVpAdapter(){
         val adapter = ViewPagerAdapter(this@InfoTrActivity,fragList)
         binding.viewPagerFragments.adapter = adapter
+
         TabLayoutMediator(binding.tabLayout,binding.viewPagerFragments){
                 tab, pos ->
         }.attach()
@@ -54,16 +80,21 @@ class InfoTrActivity : AppCompatActivity() {
         for(i in fragList.indices){
             val textView = LayoutInflater.from(this@InfoTrActivity).inflate(R.layout.tab_title,null ) as TextView
             binding.tabLayout.getTabAt(i)?.customView = textView
+
         }
 
     }
 
     companion object{
         private const val EXTRA_NAME_OF_TRADITION = "nameTrad"
+        private const val EXTRA_NAME_TRADITION_GROUP = "nameOfTraditionGroup"
 
-        fun newIntent(context: Context, nameTradition: String): Intent {
+        lateinit var selectedTraditionInfo: Traditions
+
+        fun newIntent(context: Context, nameTradition: String,nameTraditionGroup: String): Intent {
             val intent = Intent(context,InfoTrActivity::class.java)
             intent.putExtra(EXTRA_NAME_OF_TRADITION,nameTradition)
+            intent.putExtra(EXTRA_NAME_TRADITION_GROUP,nameTraditionGroup)
             return intent
         }
     }

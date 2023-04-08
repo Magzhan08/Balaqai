@@ -12,20 +12,33 @@ import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.balaqai.R
 import com.example.balaqai.authorization.MainActivity
+import com.example.balaqai.data.Traditions
 import com.example.balaqai.databinding.ActivitySelectedGroupTrBinding
+import com.example.balaqai.game.GamesActivity
 import com.example.balaqai.traditions.adapters.SelectedGrTrAdapter
 import com.example.balaqai.traditions.data.SelectedGroupTr
 import com.example.balaqai.utils.SharedPref
+import com.example.balaqai.utils.TraditionsData
 
 class SelectedGroupTrActivity : AppCompatActivity(), SelectedGrTrAdapter.Listener {
     private lateinit var binding: ActivitySelectedGroupTrBinding
     private val adapter = SelectedGrTrAdapter(this)
     private lateinit var sharePref: SharedPreferences
+    private lateinit var nameOfTrGroup: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySelectedGroupTrBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        if (!intent.hasExtra(EXTRA_NAME_TRADITION_GROUP)){
+            finish()
+            return
+        }
+        nameOfTrGroup = intent.getStringExtra(EXTRA_NAME_TRADITION_GROUP).toString()
+        TraditionsData.getTraditionsGroup(nameOfTrGroup)
+        binding.tvNameOfTrGroup.text = nameOfTrGroup
+
         initRcViewSelect()
         selectedSettings()
 
@@ -52,20 +65,20 @@ class SelectedGroupTrActivity : AppCompatActivity(), SelectedGrTrAdapter.Listene
             }
         }
 
-
-
-        if (!intent.hasExtra(EXTRA_NAME_TRADITION_GROUP)){
-            finish()
-            return
+        binding.btnGames.setOnClickListener {
+            val intent = Intent(this, GamesActivity::class.java)
+            startActivity(intent)
         }
-        val nameOfTrGroup = intent.getStringExtra(EXTRA_NAME_TRADITION_GROUP)
+        binding.btnTraditions.setOnClickListener {
+            val intent = Intent(this, TraditionsActivity::class.java)
+            startActivity(intent)
+        }
 
-        binding.tvNameOfTrGroup.text = nameOfTrGroup
     }
     private fun initRcViewSelect() = with(binding){
         rcViewSelectedTr.layoutManager = GridLayoutManager(this@SelectedGroupTrActivity, 3)
         rcViewSelectedTr.adapter = adapter
-        adapter.setTraditions(myTestSelectedTraditions())
+        adapter.setTraditions(mySelectedTraditions())
     }
 
     private fun openSettings(){
@@ -111,29 +124,12 @@ class SelectedGroupTrActivity : AppCompatActivity(), SelectedGrTrAdapter.Listene
     }
 
 
-    private fun myTestSelectedTraditions(): ArrayList<SelectedGroupTr>{
+    private fun mySelectedTraditions(): ArrayList<SelectedGroupTr>{
         val tradList = ArrayList<SelectedGroupTr>()
 
-        val trad1 = SelectedGroupTr(R.drawable.shildehana,"Шілдехана")
-        tradList.add(trad1)
-        val trad2 = SelectedGroupTr(R.drawable.kiyt,"Киіт")
-        tradList.add(trad2)
-        val trad3 = SelectedGroupTr(R.drawable.bata,"Бата")
-        tradList.add(trad3)
-        val trad4 = SelectedGroupTr(R.drawable.saumalyk,"Саумалық")
-        tradList.add(trad4)
-        val trad5 = SelectedGroupTr(R.drawable.zharapazan,"Жарапазан")
-        tradList.add(trad5)
-        val trad6 = SelectedGroupTr(R.drawable.tysaukeser,"Тұсаукесер")
-        tradList.add(trad6)
-        val trad7 = SelectedGroupTr(R.drawable.sirgasaly,"Сырға салу")
-        tradList.add(trad7)
-        val trad8 = SelectedGroupTr(R.drawable.ayiztiy,"Ауыз тию")
-        tradList.add(trad8)
-        val trad9 = SelectedGroupTr(R.drawable.test1img,"Айт")
-        tradList.add(trad9)
-        val trad10 = SelectedGroupTr(R.drawable.test2hpegimg,"Наурыз той")
-        tradList.add(trad10)
+        for (tradition in TraditionsData.selectedTraditionList){
+            tradList.add(SelectedGroupTr(R.drawable.shildehana,tradition.name.replace("\n","")))
+        }
 
         return tradList
     }
@@ -148,9 +144,9 @@ class SelectedGroupTrActivity : AppCompatActivity(), SelectedGrTrAdapter.Listene
         }
     }
 
-    override fun onClick(name: String) {
+    override fun onClick(name: String,) {
         Toast.makeText(this, "Clicked on $name", Toast.LENGTH_SHORT).show()
-        val intent = TraditionActivity.newIntent(this@SelectedGroupTrActivity,"$name")
+        val intent = TraditionActivity.newIntent(this@SelectedGroupTrActivity, name, nameOfTrGroup)
         startActivity(intent)
     }
 }

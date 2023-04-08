@@ -89,12 +89,15 @@
         android:id="@+id/btnSubmit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:fontFamily="@font/nunito_sans_bold"
-        android:textSize="24sp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/btn_continue_game"
-        android:layout_margin="20dp"
+        android:fontFamily="@font/nunito_sans_bold"
         android:text="@string/continue_btn"
-        android:layout_alignParentBottom="true"/>
+        android:textColor="@color/white"
+        android:textSize="24sp" />
 
 </RelativeLayout>

@@ -14,6 +14,9 @@ class ThirdInfoFragment : Fragment() {
     private lateinit var binding: FragmentThirdInfoBinding
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentThirdInfoBinding.inflate(inflater,container,false)
+
+        binding.infoTrTextView.text = InfoTrActivity.selectedTraditionInfo.description2
+
         return binding.root
 
     }

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "599593873967",
+    "project_id": "balaqai-cb7ec",
+    "storage_bucket": "balaqai-cb7ec.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:599593873967:android:914d80a79eb4751a2c0cda",
+        "android_client_info": {
+          "package_name": "com.example.balaqai"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "599593873967-h6kkjophmh8rr6vvjcj8kk6ua54phg4i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARtb9JVdmR1lZZReq-93V-uny7p84GQYA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "599593873967-h6kkjophmh8rr6vvjcj8kk6ua54phg4i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

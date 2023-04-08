@@ -13,7 +13,7 @@ import com.example.balaqai.traditions.data.QuestionAndAnswer
 class QuestionActivity : AppCompatActivity() {
     private lateinit var binding: ActivityQuestionBinding
 
-    private var questionsLists: List<QuestionAndAnswer> = mutableListOf(QuestionAndAnswer("Шілдеханаға жиналушылар қандай құттықтау сөз айтады?" ,"Туған күніңмен", "Бақытты бол", "Бауы берік болсын","Б",""))
+    private var questionsLists: List<QuestionAndAnswer> = mutableListOf(QuestionAndAnswer(InfoTrActivity.selectedTraditionInfo.question ,InfoTrActivity.selectedTraditionInfo.variantA, InfoTrActivity.selectedTraditionInfo.variantB, InfoTrActivity.selectedTraditionInfo.variantC,InfoTrActivity.selectedTraditionInfo.answer,""))
 
     private var correctAnswer: String = questionsLists[0].answer
     private var selectedOptionByUser = ""
@@ -100,13 +100,13 @@ class QuestionActivity : AppCompatActivity() {
     private fun revealAnswer(){
         val getAnswer = correctAnswer
 
-        if ("А".equals(getAnswer)){
+        if ("A".equals(getAnswer)){
             binding.option1.setBackgroundResource(R.drawable.ques_correct_ans_style)
         }
-        else if ("Ә".equals(getAnswer)){
+        else if ("B".equals(getAnswer)){
             binding.option2.setBackgroundResource(R.drawable.ques_correct_ans_style)
         }
-        else if ("Б".equals(getAnswer)){
+        else if ("C".equals(getAnswer)){
             binding.option3.setBackgroundResource(R.drawable.ques_correct_ans_style)
         }
 

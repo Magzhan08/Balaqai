@@ -13,6 +13,7 @@ import com.example.balaqai.R
 import com.example.balaqai.authorization.MainActivity
 import com.example.balaqai.databinding.ActivityGamesBinding
 import com.example.balaqai.traditions.ProfileAndSettings
+import com.example.balaqai.traditions.TraditionsActivity
 import com.example.balaqai.utils.SharedPref
 
 class GamesActivity : AppCompatActivity() {
@@ -68,7 +69,9 @@ class GamesActivity : AppCompatActivity() {
 //            binding.aliAndAyyaLayoutConstr.setBackgroundResource(R.drawable.game_inner_layout_style)
 //            binding.hiddenThingsLayoutConst.setBackgroundResource(R.drawable.round_back_white_stroke_20)
 //            binding.collateLayoutConst.setBackgroundResource(R.drawable.game_inner_layout_style)
-
+            val intent = Intent(this, HiddenThingsActivity::class.java)
+            intent.putExtra("selectedTopic", selectedTopicName)
+            startActivity(intent)
         }
         binding.collateLayout.setOnClickListener {
 
@@ -78,6 +81,10 @@ class GamesActivity : AppCompatActivity() {
 //            binding.aliAndAyyaLayoutConstr.setBackgroundResource(R.drawable.game_inner_layout_style)
 //            binding.hiddenThingsLayoutConst.setBackgroundResource(R.drawable.game_inner_layout_style)
 //            binding.collateLayoutConst.setBackgroundResource(R.drawable.round_back_white_stroke_20)
+
+            val intent = Intent(this, CollateGameActivity::class.java)
+            intent.putExtra("selectedTopic", selectedTopicName)
+            startActivity(intent)
 
         }
 
@@ -130,7 +137,8 @@ class GamesActivity : AppCompatActivity() {
         }
 
         binding.btnTraditions.setOnClickListener {
-            onBackPressed()
+                val intent = Intent(this, TraditionsActivity::class.java)
+                startActivity(intent)
         }
     }
 

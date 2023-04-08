@@ -1,9 +1,15 @@
 package com.example.balaqai.game
 
+import android.app.Dialog
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Window
+import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import com.example.balaqai.R
 import com.example.balaqai.databinding.ActivityAliAndAyyaBinding
@@ -19,7 +25,7 @@ class AliAndAyyaActivity : AppCompatActivity() {
     private var selectedOptionByUser = ""
     private var currentQuestionPosition = 0
     private lateinit var questionsLists: List<QuestionsList>
-
+    private lateinit var getSelectedTopicName: String
     var op1 = ""
     var op2 = ""
     var op3 = ""
@@ -30,9 +36,14 @@ class AliAndAyyaActivity : AppCompatActivity() {
         binding = ActivityAliAndAyyaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val getSelectedTopicName = intent.getStringExtra("selectedTopic")
+        getSelectedTopicName = intent.getStringExtra("selectedTopic").toString()
 
         binding.topicName.text = getSelectedTopicName
+
+    }
+
+    override fun onStart() {
+        super.onStart()
 
         questionsLists = questionsBank.getQuestion(getSelectedTopicName!!)
 
@@ -141,15 +152,40 @@ class AliAndAyyaActivity : AppCompatActivity() {
 
         }
         else{
-            val intent = Intent(this,AliAndAyyaResultActivity::class.java)
-            intent.putExtra("correct",getCorrectAnswers())
-            intent.putExtra("incorrect",getInCorrectAnswers())
-
-            startActivity(intent)
-
-            finish()
-
+            alertDialog()
         }
+    }
+
+    private fun alertDialog() {
+
+        val dialog = Dialog(this)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(false)
+        dialog.setContentView(R.layout.ali_and_ayya_game_finish)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        var tvPoint : TextView = dialog.findViewById(R.id.point_aliandayya)
+        tvPoint.text = "Дұрыс жауып саны: ${getCorrectAnswers()} \n Қате жауап саны ${getInCorrectAnswers()}"
+        var tvMotivation : TextView = dialog.findViewById(R.id.motivation_aliandayya)
+        if (getCorrectAnswers() > questionsLists.size/2) {
+            tvMotivation.text = "Жарайсың балақай! \n Өте жақсы ойын болды!"
+        } else{
+            tvMotivation.text = "Жарайсың балақай! \n Осы қалпыңнан тайма!"
+        }
+        val btnExit: Button = dialog.findViewById(R.id.exit_game_ali_and_ayya)
+        val btnNew: Button = dialog.findViewById(R.id.new_game_ali_and_ayya)
+        btnExit.setOnClickListener {
+            dialog.dismiss()
+            finish()
+        }
+        btnNew.setOnClickListener {
+            dialog.dismiss()
+            val intent = Intent(applicationContext, AliAndAyyaActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        dialog.show()
+
     }
 
     private fun getCorrectAnswers(): Int{

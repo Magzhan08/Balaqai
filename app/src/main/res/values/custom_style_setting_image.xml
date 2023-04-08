@@ -3,4 +3,9 @@
     <style name="images_settings">
         <item name="cornerSize">40%</item>
     </style>
+
+    <style name="collate_image_settings">
+        <item name="cornerSize">50%</item>
+        <item name="android:elevation">50dp</item>
+    </style>
 </resources>

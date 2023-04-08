@@ -71,7 +71,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener, View.OnFocus
                                 val intent = Intent(this@RegisterActivity, TraditionsActivity::class.java)
                                 startActivity(intent)
                             }else{
-
+                                Toast.makeText(this@RegisterActivity, "Бұндай email жадыда сақталған", Toast.LENGTH_SHORT).show()
                                 Log.d("MyTag","onResponse: Registered is not successful")
                             }
                         }

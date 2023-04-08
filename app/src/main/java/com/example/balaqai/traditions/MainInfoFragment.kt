@@ -6,16 +6,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.balaqai.R
+import com.example.balaqai.databinding.FragmentMainInfoBinding
 
 
 class MainInfoFragment : Fragment() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main_info, container, false)
+    private lateinit var binding: FragmentMainInfoBinding
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
+        binding = FragmentMainInfoBinding.inflate(inflater,container,false)
+
+
+        binding.infoTrTextView.text = InfoTrActivity.selectedTraditionInfo.description
+
+        return binding.root
     }
 
     companion object {

@@ -1,9 +1,14 @@
 package com.example.balaqai.game
 
+import android.app.Dialog
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.Gravity
+import android.view.Window
+import android.widget.Button
 import android.widget.GridView
 import android.widget.LinearLayout
 import android.widget.Toast
@@ -104,9 +109,7 @@ class WhatIsInImgActivity : AppCompatActivity() {
 
     private fun setupList(image_count: Int) {
         if (image_count >= image_list.size) {
-            val intent = Intent(this, GamesActivity::class.java)
-            startActivity(intent)
-            finish()
+            alertDialog()
         } else {
             //Random logo
             var imageSelected = image_list[image_count]
@@ -152,5 +155,26 @@ class WhatIsInImgActivity : AppCompatActivity() {
             result[i] = ' '
         }
         return result
+    }
+    private fun alertDialog(){
+        val dialog = Dialog(this)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(false)
+        dialog.setContentView(R.layout.what_image_game_finish)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        var btnNew = dialog.findViewById<Button>(R.id.new_game_what_image)
+        var btnExit = dialog.findViewById<Button>(R.id.exit_game_what_image)
+        btnNew.setOnClickListener {
+            dialog.dismiss()
+            val intent = Intent(applicationContext, WhatIsInImgActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        btnExit.setOnClickListener {
+            dialog.dismiss()
+            finish()
+        }
+        dialog.show()
     }
 }
