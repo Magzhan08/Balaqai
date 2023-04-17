@@ -30,6 +30,15 @@ class VideoTrActivity : AppCompatActivity() {
             TraditionsData.getTraditionsGroup(nameOfTrGroup)
         }
 
+        val youTubePlayerView = binding.youtubePlayerView
+        lifecycle.addObserver(youTubePlayerView)
+
+        youTubePlayerView.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
+            override fun onReady(youTubePlayer: YouTubePlayer) {
+                val videoId = "PCofixqJiA8"
+                youTubePlayer.loadVideo(videoId, 0f)
+            }
+        })
 
 
 
