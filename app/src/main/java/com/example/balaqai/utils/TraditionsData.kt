@@ -1,5 +1,6 @@
 package com.example.balaqai.utils
 
+import com.example.balaqai.Api.BalaqaiApi
 import com.example.balaqai.data.Traditions
 
 object TraditionsData {
@@ -9,6 +10,7 @@ object TraditionsData {
     var trCustomsOfEducation: MutableList<Traditions> = mutableListOf()
     var trNauryzTraditions: MutableList<Traditions> = mutableListOf()
     var traditionOfIslam: MutableList<Traditions> = mutableListOf()
+    var imageUrl: String = ""
 
     var selectedTraditionList: MutableList<Traditions> = mutableListOf()
 
@@ -37,6 +39,15 @@ object TraditionsData {
             "Отбасы дәстүрлері" -> selectedTraditionList = traditionsOfFamily
             "Наурыз дәстүрлері" -> selectedTraditionList = trNauryzTraditions
             "Ислам дәстүрлері" -> selectedTraditionList = traditionOfIslam
+        }
+    }
+    fun getTraditionImageUrl(name: String){
+        when(name){
+            "Тәрбие салт-дәстүрлері" -> imageUrl = BalaqaiApi.BASE_traditionsAndCustomersImage_URL
+            "Отау Көтеру дәстүрлері" -> imageUrl = BalaqaiApi.BASE_traditionsOfRaisingImage_URL
+            "Отбасы дәстүрлері" -> imageUrl = BalaqaiApi.BASE_familyImage_URL
+            "Наурыз дәстүрлері" -> imageUrl = BalaqaiApi.BASE_nauryzImage_URL
+            "Ислам дәстүрлері" -> imageUrl = BalaqaiApi.BASE_islamImage_URL
         }
     }
 }

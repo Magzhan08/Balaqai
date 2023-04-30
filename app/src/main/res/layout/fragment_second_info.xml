@@ -21,6 +21,8 @@
         <TextView
             android:id="@+id/infoTrTextView"
             style="@style/infoTextStyle"
+            android:layout_gravity="center_horizontal"
+            android:textSize="20sp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Сүйінші хабарды жеткізгендер ұл туса – “ат ұстар” немесе “жылқышы”, қыз туса – “көйлек тігер”, “қырық жеті” немесе “сауыншы туды” деп хабарлаған." />

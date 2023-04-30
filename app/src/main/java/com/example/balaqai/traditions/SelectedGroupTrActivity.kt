@@ -12,7 +12,6 @@ import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.balaqai.R
 import com.example.balaqai.authorization.MainActivity
-import com.example.balaqai.data.Traditions
 import com.example.balaqai.databinding.ActivitySelectedGroupTrBinding
 import com.example.balaqai.game.GamesActivity
 import com.example.balaqai.traditions.adapters.SelectedGrTrAdapter
@@ -22,7 +21,7 @@ import com.example.balaqai.utils.TraditionsData
 
 class SelectedGroupTrActivity : AppCompatActivity(), SelectedGrTrAdapter.Listener {
     private lateinit var binding: ActivitySelectedGroupTrBinding
-    private val adapter = SelectedGrTrAdapter(this)
+    private val adapter = SelectedGrTrAdapter(this,this)
     private lateinit var sharePref: SharedPreferences
     private lateinit var nameOfTrGroup: String
 
@@ -128,7 +127,11 @@ class SelectedGroupTrActivity : AppCompatActivity(), SelectedGrTrAdapter.Listene
         val tradList = ArrayList<SelectedGroupTr>()
 
         for (tradition in TraditionsData.selectedTraditionList){
-            tradList.add(SelectedGroupTr(R.drawable.shildehana,tradition.name.replace("\n","")))
+            if(tradition.image.isNullOrEmpty()){
+                    tradList.add(SelectedGroupTr("",tradition.name.replace("\n","")))
+            }else {
+                tradList.add(SelectedGroupTr(tradition.image, tradition.name.replace("\n", "")))
+            }
         }
 
         return tradList

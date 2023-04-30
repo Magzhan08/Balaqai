@@ -1,6 +1,6 @@
 package com.example.balaqai.traditions.data
 
 data class SelectedGroupTr(
-    val image: Int,
+    val image: String,
     val name: String
 )

@@ -4,6 +4,7 @@ import android.app.Dialog
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.Gravity
@@ -13,11 +14,14 @@ import android.widget.GridView
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
+import com.example.balaqai.Api.BalaqaiApi
 import com.example.balaqai.R
 import com.example.balaqai.databinding.ActivityWhatIsInImgBinding
 import com.example.balaqai.game.adapter.GridViewAnswerAdapter
 import com.example.balaqai.game.adapter.GridViewSuggestAdapter
 import com.example.balaqai.game.data.Common
+import com.example.balaqai.utils.GameData
 import java.nio.charset.Charset
 import java.nio.charset.StandardCharsets
 import kotlin.random.Random
@@ -32,14 +36,6 @@ class WhatIsInImgActivity : AppCompatActivity() {
 
     lateinit var gridViewAnswer: GridView
     lateinit var gridViewSuggest: GridView
-
-
-    var image_list = listOf(
-        R.drawable.dombira,
-        R.drawable.ty,
-        R.drawable.shanirak,
-        R.drawable.tenge
-    )
 
     var common = Common()
 
@@ -74,12 +70,6 @@ class WhatIsInImgActivity : AppCompatActivity() {
             }
 
             if (result == correct_answer) {
-                Toast.makeText(
-                    applicationContext,
-                    "Finish! This is $result",
-                    Toast.LENGTH_SHORT
-                ).show()
-
                 imageCounter++
 
                 //Reset
@@ -101,23 +91,25 @@ class WhatIsInImgActivity : AppCompatActivity() {
 
                 setupList(imageCounter)
             } else {
-                Toast.makeText(this, "Incorrect!!!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Қате!", Toast.LENGTH_SHORT).show()
             }
 
         }
     }
 
     private fun setupList(image_count: Int) {
-        if (image_count >= image_list.size) {
+        if (image_count >= GameData.gameSuretteNeKorsetilgen.size) {
             alertDialog()
         } else {
             //Random logo
-            var imageSelected = image_list[image_count]
-            binding.imLogo.setImageResource(imageSelected)
 
-            correct_answer = resources.getResourceName(imageSelected)
-            correct_answer = correct_answer.substring(correct_answer.lastIndexOf("/") + 1)
+            Glide
+                .with(this)
+                .load(Uri.parse("${BalaqaiApi.BASE_URL}/game/suretteNeKorsetilgenImage/${GameData.gameSuretteNeKorsetilgen[image_count].image}"))
+                .fitCenter()
+                .into(binding.imLogo)
 
+            correct_answer = GameData.gameSuretteNeKorsetilgen[image_count].name
             answer = correct_answer.toCharArray()
 
             common.user_submit_answer = CharArray(answer.size)

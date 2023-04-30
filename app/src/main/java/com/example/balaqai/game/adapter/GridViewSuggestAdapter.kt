@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.AbsListView
 import android.widget.BaseAdapter
 import android.widget.Button
+import androidx.core.view.marginLeft
 import com.example.balaqai.R
 import com.example.balaqai.game.WhatIsInImgActivity
 
@@ -31,7 +32,7 @@ class GridViewSuggestAdapter(private var suggestSource: List<String>,private var
         if (convertView == null){
             if (suggestSource[position] == "null"){
                 button = Button(context)
-                button.layoutParams = GridView@AbsListView.LayoutParams(155, 155)
+                button.layoutParams = GridView@AbsListView.LayoutParams(140, 140)
                 button.setPadding(5,5,5,5)
                 button.textSize = 16f
                 button.typeface = Typeface.DEFAULT_BOLD
@@ -44,7 +45,7 @@ class GridViewSuggestAdapter(private var suggestSource: List<String>,private var
                 }
             } else{
                 button = Button(context)
-                button.layoutParams = GridView@AbsListView.LayoutParams(150, 150)
+                button.layoutParams = GridView@AbsListView.LayoutParams(140, 140)
                 button.setPadding(5,5,5,5)
                 button.textSize = 16f
                 button.typeface = Typeface.DEFAULT_BOLD

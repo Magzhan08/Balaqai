@@ -5,6 +5,7 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
@@ -15,8 +16,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
+import com.example.balaqai.Api.BalaqaiApi
 import com.example.balaqai.R
 import com.example.balaqai.databinding.ActivityCollateGameBinding
+import com.example.balaqai.utils.TraditionsData
 import java.util.*
 
 class CollateGameActivity : AppCompatActivity() {
@@ -37,18 +41,18 @@ class CollateGameActivity : AppCompatActivity() {
     //Array for the images
     var cardArray: IntArray = intArrayOf(101,102,103,104,105,106,201,202,203,204,205,206)
 
-    var image101 = 0
-    var image102 = 0
-    var image103 = 0
-    var image104 = 0
-    var image105 = 0
-    var image106 = 0
-    var image201 = 0
-    var image202 = 0
-    var image203 = 0
-    var image204 = 0
-    var image205 = 0
-    var image206 = 0
+    var image101 = ""
+    var image102 = ""
+    var image103 = ""
+    var image104 = ""
+    var image105 = ""
+    var image106 = ""
+    var image201 = ""
+    var image202 = ""
+    var image203 = ""
+    var image204 = ""
+    var image205 = ""
+    var image206 = ""
 
 
     var firstCard = 0
@@ -171,33 +175,43 @@ class CollateGameActivity : AppCompatActivity() {
         }
     }
 
+    private fun setImageGlide(iv: ImageView?,url: String) {
+        iv?.let {
+            Glide
+                .with(this)
+                .load(Uri.parse(url))
+                .fitCenter()
+                .into(it)
+        }
+    }
+
     private fun doStuff(iv: ImageView?, theCard: Int) {
         counter++
         //set the correct image to the imageView
         if (cardArray[theCard] == 101){
-            iv?.setImageResource(image101)
+            setImageGlide(iv,image101)
         } else if (cardArray[theCard] == 102){
-            iv?.setImageResource(image102)
+            setImageGlide(iv,image102)
         } else if (cardArray[theCard] == 103){
-            iv?.setImageResource(image103)
+            setImageGlide(iv,image103)
         } else if (cardArray[theCard] == 104){
-            iv?.setImageResource(image104)
+            setImageGlide(iv,image104)
         } else if (cardArray[theCard] == 105){
-            iv?.setImageResource(image105)
+            setImageGlide(iv,image105)
         } else if (cardArray[theCard] == 106){
-            iv?.setImageResource(image106)
+            setImageGlide(iv,image106)
         } else if (cardArray[theCard] == 201){
-            iv?.setImageResource(image201)
+            setImageGlide(iv,image201)
         } else if (cardArray[theCard] == 202){
-            iv?.setImageResource(image202)
+            setImageGlide(iv,image202)
         } else if (cardArray[theCard] == 203){
-            iv?.setImageResource(image203)
+            setImageGlide(iv,image203)
         } else if (cardArray[theCard] == 204){
-            iv?.setImageResource(image204)
+            setImageGlide(iv,image204)
         } else if (cardArray[theCard] == 205){
-            iv?.setImageResource(image205)
+            setImageGlide(iv,image205)
         } else if (cardArray[theCard] == 206){
-            iv?.setImageResource(image206)
+            setImageGlide(iv,image206)
         }
 
         // check which image is selected and save it to temporary variable
@@ -383,17 +397,20 @@ class CollateGameActivity : AppCompatActivity() {
     }
 
     private fun frontOfCardsResources() {
-        image101 = R.drawable.ic_image101
-        image102 = R.drawable.ic_image102
-        image103 = R.drawable.ic_image103
-        image104 = R.drawable.ic_image104
-        image105 = R.drawable.ic_image105
-        image106 = R.drawable.ic_image106
-        image201 = R.drawable.ic_image101
-        image202 = R.drawable.ic_image102
-        image203 = R.drawable.ic_image103
-        image204 = R.drawable.ic_image104
-        image205 = R.drawable.ic_image105
-        image206 = R.drawable.ic_image106
+        image101 = "${BalaqaiApi.BASE_URL}/game/saikestendiruImage/qurt.jpg"
+        image102 = "${BalaqaiApi.BASE_URL}/game/saikestendiruImage/Aitys.jpg"
+        image103 = "${BalaqaiApi.BASE_URL}/game/saikestendiruImage/asyq.jpg"
+        image104 = "${BalaqaiApi.BASE_URL}/game/saikestendiruImage/dombyra.jpg"
+        image105 = "${BalaqaiApi.BASE_URL}/game/saikestendiruImage/kokpar.jpg"
+        image106 = "${BalaqaiApi.BASE_URL}/game/saikestendiruImage/erToqym.jpg"
+        image201 = "${BalaqaiApi.BASE_URL}/game/saikestendiruImage/qurt.jpg"
+        image202 = "${BalaqaiApi.BASE_URL}/game/saikestendiruImage/Aitys.jpg"
+        image203 = "${BalaqaiApi.BASE_URL}/game/saikestendiruImage/asyq.jpg"
+        image204 = "${BalaqaiApi.BASE_URL}/game/saikestendiruImage/dombyra.jpg"
+        image205 = "${BalaqaiApi.BASE_URL}/game/saikestendiruImage/kokpar.jpg"
+        image206 = "${BalaqaiApi.BASE_URL}/game/saikestendiruImage/erToqym.jpg"
     }
+
+
+
 }

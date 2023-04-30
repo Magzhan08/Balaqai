@@ -88,15 +88,15 @@
             android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="20dp"
-            app:tabMode="auto"
+            app:layout_constraintTop_toTopOf="parent"
             app:tabGravity="center"
             app:tabIndicatorHeight="0dp"
-            app:tabRippleColor="@null"
-            />
+            app:tabMode="auto"
+            app:tabRippleColor="@null" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewPagerFragments"

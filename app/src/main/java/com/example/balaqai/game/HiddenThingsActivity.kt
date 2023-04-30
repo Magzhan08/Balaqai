@@ -4,6 +4,8 @@ import android.app.Dialog
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.media.MediaPlayer
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -25,6 +27,21 @@ class HiddenThingsActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
+        var mpCount = 1
+        var mp = MediaPlayer()
+        binding.btnSound.setOnClickListener {
+            if (mpCount%2 != 0) {
+                mp.setDataSource(this, Uri.parse("android.resource://"+this.packageName+"/"+R.raw.hidden_things_task))
+                mp.prepare()
+                mpCount++
+                mp.start()
+            }else{
+                mp.stop()
+                mp.release()
+                mp = MediaPlayer()
+                mpCount = 1
+            }
+        }
 
         binding.btnBack.setOnClickListener {
             onBackPressed()

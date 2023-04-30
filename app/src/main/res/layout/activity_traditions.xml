@@ -133,7 +133,7 @@
         android:layout_width="135dp"
         android:layout_height="48dp"
         android:layout_marginStart="92dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="90dp"
         android:background="@drawable/button_style_tradition"
         android:fontFamily="@font/raleway_extrabold"
         android:text="@string/traditions"

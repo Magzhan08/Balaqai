@@ -35,7 +35,7 @@ class VideoTrActivity : AppCompatActivity() {
 
         youTubePlayerView.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
             override fun onReady(youTubePlayer: YouTubePlayer) {
-                val videoId = "PCofixqJiA8"
+                val videoId = InfoTrActivity.selectedTraditionInfo.video
                 youTubePlayer.loadVideo(videoId, 0f)
             }
         })

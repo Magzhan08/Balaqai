@@ -2,6 +2,8 @@ package com.example.balaqai.Api
 
 import com.example.balaqai.data.Traditions
 import com.example.balaqai.data.User
+import com.example.balaqai.game.data.SuretteNeKorsetilgenData
+import com.example.balaqai.game.data.gameData
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -55,11 +57,23 @@ interface BalaqaiApi {
     @GET("/tradition/getOneIslamTradition/{id}")
     fun getOneIslamTradition(@Path("id") id: Long): Call<Traditions>
 
+    // game/getAllAliMenAiya
+    @GET("/game/getAllAliMenAiya")
+    fun getAllAliMenAiya(): Call<List<gameData>>
+
+    // game/getAllSuretteNeKorsetilgen
+    @GET("/game/getAllSuretteNeKorsetilgen")
+    fun getAllSuretteNeKorsetilgen(): Call<List<SuretteNeKorsetilgenData>>
 
 
     companion object {
 
-        const val BASE_URL = "http://192.168.0.19:8080"
+        const val BASE_URL = "http://192.168.0.18:8000"
+        const val BASE_familyImage_URL = "$BASE_URL/familyImage/"
+        const val BASE_islamImage_URL = "$BASE_URL/islamImage/"
+        const val BASE_nauryzImage_URL = "$BASE_URL/nauryzImage/"
+        const val BASE_traditionsAndCustomersImage_URL = "$BASE_URL/traditionsAndCustomersImage/"
+        const val BASE_traditionsOfRaisingImage_URL = "$BASE_URL/traditionsOfRaisingImage/"
 
         val INSTANCE = Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())

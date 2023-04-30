@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.balaqai.Api.BalaqaiApi
 import com.example.balaqai.R
 import com.example.balaqai.authorization.MainActivity
 import com.example.balaqai.databinding.ActivityTraditionsBinding
@@ -203,44 +204,43 @@ class TraditionsActivity : AppCompatActivity(), TraditionsGroupAdapter.Listener 
 
     private fun myTraditions(): ArrayList<Tradition> {
 
-        Log.d("MyTag" ,"TraditionsData.traditionsOfFamily[0].image : ${TraditionsData.traditionsOfFamily[0].image}")
         val trad1 = Tradition(
             "Тәрбие салт-дәстүрлері",
-            TraditionsData.traditionsOfFamily[0].image,
-            "https://el.kz/upload/storage_el/media/images/tiny_images/e6a0b246b20dfe47abe0360175ca0c5d.jpg",
-            TraditionsData.trCustomsOfEducation[0].name,
+            "${BalaqaiApi.BASE_traditionsAndCustomersImage_URL}${TraditionsData.trCustomsOfEducation[2].image}",
+            "${BalaqaiApi.BASE_traditionsAndCustomersImage_URL}${TraditionsData.trCustomsOfEducation[1].image}",
+            TraditionsData.trCustomsOfEducation[2].name,
             TraditionsData.trCustomsOfEducation[1].name
         )
 
         tradList.add(trad1)
         val trad2 = Tradition(
             "Отау Көтеру дәстүрлері",
-            TraditionsData.traditionsOfFamily[0].image,
-            "https://el.kz/upload/storage_el/media/images/tiny_images/e6a0b246b20dfe47abe0360175ca0c5d.jpg",
+            "${BalaqaiApi.BASE_traditionsOfRaisingImage_URL}${TraditionsData.traditionsOfRaisingADowryAll[0].image}",
+            "${BalaqaiApi.BASE_traditionsOfRaisingImage_URL}${TraditionsData.traditionsOfRaisingADowryAll[1].image}",
             TraditionsData.traditionsOfRaisingADowryAll[0].name,
             TraditionsData.traditionsOfRaisingADowryAll[1].name
         )
         tradList.add(trad2)
         val trad3 = Tradition(
             "Отбасы дәстүрлері",
-            TraditionsData.traditionsOfFamily[0].image,
-            "https://el.kz/upload/storage_el/media/images/tiny_images/e6a0b246b20dfe47abe0360175ca0c5d.jpg",
+            "${BalaqaiApi.BASE_familyImage_URL}${TraditionsData.traditionsOfFamily[0].image}",
+            "${BalaqaiApi.BASE_familyImage_URL}${TraditionsData.traditionsOfFamily[1].image}",
             TraditionsData.traditionsOfFamily[0].name,
             TraditionsData.traditionsOfFamily[1].name
         )
         tradList.add(trad3)
         val trad4 = Tradition(
             "Наурыз дәстүрлері",
-            TraditionsData.traditionsOfFamily[0].image,
-            "https://el.kz/upload/storage_el/media/images/tiny_images/e6a0b246b20dfe47abe0360175ca0c5d.jpg",
-            TraditionsData.trNauryzTraditions[0].name,
-            TraditionsData.trNauryzTraditions[1].name
+            "${BalaqaiApi.BASE_nauryzImage_URL}${TraditionsData.trNauryzTraditions[2].image}",
+            "${BalaqaiApi.BASE_nauryzImage_URL}${TraditionsData.trNauryzTraditions[0].image}",
+            TraditionsData.trNauryzTraditions[2].name,
+            TraditionsData.trNauryzTraditions[0].name
         )
         tradList.add(trad4)
         val trad5 = Tradition(
             "Ислам дәстүрлері",
-            TraditionsData.traditionsOfFamily[0].image,
-            "https://el.kz/upload/storage_el/media/images/tiny_images/e6a0b246b20dfe47abe0360175ca0c5d.jpg",
+            "${BalaqaiApi.BASE_islamImage_URL}${TraditionsData.traditionOfIslam[0].image}",
+            "${BalaqaiApi.BASE_islamImage_URL}${TraditionsData.traditionOfIslam[1].image}",
             TraditionsData.traditionOfIslam[0].name,
             TraditionsData.traditionOfIslam[1].name
         )
@@ -255,7 +255,7 @@ class TraditionsActivity : AppCompatActivity(), TraditionsGroupAdapter.Listener 
         val params = Bundle()
         params.putString("tradition_name", name)
         firebaseAnalytics.logEvent("open_tradition", params)
-
+        TraditionsData.getTraditionImageUrl(tradition.title)
         val intent = TraditionActivity.newIntent(this@TraditionsActivity, "$name", tradition.title)
         startActivity(intent)
     }
@@ -265,7 +265,7 @@ class TraditionsActivity : AppCompatActivity(), TraditionsGroupAdapter.Listener 
         val params = Bundle()
         params.putString("tradition_name", name)
         firebaseAnalytics.logEvent("open_tradition", params)
-
+        TraditionsData.getTraditionImageUrl(tradition.title)
         Toast.makeText(this, "Clicked on $name", Toast.LENGTH_SHORT).show()
         val intent = TraditionActivity.newIntent(this@TraditionsActivity, "$name", tradition.title)
         startActivity(intent)
@@ -275,7 +275,7 @@ class TraditionsActivity : AppCompatActivity(), TraditionsGroupAdapter.Listener 
         val params = Bundle()
         params.putString("tradition_group_name", tradition.title)
         firebaseAnalytics.logEvent("open_tradition_group", params)
-
+        TraditionsData.getTraditionImageUrl(tradition.title)
         Toast.makeText(this, "Clicked on ${tradition.title}", Toast.LENGTH_SHORT).show()
         val intent = SelectedGroupTrActivity.newIntent(this@TraditionsActivity, tradition.title)
         startActivity(intent)

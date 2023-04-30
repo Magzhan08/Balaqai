@@ -40,7 +40,7 @@ class TraditionsGroupAdapter(private val listener: Listener, val context: Contex
 
             Glide
                 .with(context)
-                .load(Uri.parse("${BalaqaiApi.BASE_URL}/${BalaqaiApi.BASE_URL}"))
+                .load(Uri.parse(tradition.image1))
                 .fitCenter()
                 .into(binding.imFirst)
             Log.d("MyTag","BalaqaiApi.BASE_URL/BalaqaiApi.BASE_URL: ${BalaqaiApi.BASE_URL}/${tradition.image1}" )

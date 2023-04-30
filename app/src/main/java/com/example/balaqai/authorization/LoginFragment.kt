@@ -84,7 +84,6 @@ class LoginFragment : Fragment() {
             startActivity(intent)
         }
 
-        Log.d("MyTag","User : $user")
 
     }
 

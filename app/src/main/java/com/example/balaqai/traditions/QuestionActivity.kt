@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.widget.Toast
 import com.example.balaqai.R
 import com.example.balaqai.databinding.ActivityQuestionBinding
-import com.example.balaqai.game.data.QuestionsList
 import com.example.balaqai.traditions.data.QuestionAndAnswer
 
 class QuestionActivity : AppCompatActivity() {

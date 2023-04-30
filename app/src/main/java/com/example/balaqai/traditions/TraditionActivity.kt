@@ -33,11 +33,28 @@ class TraditionActivity : AppCompatActivity() {
             if (tradition.name.replace("\n","") == nameTradition){
                 binding.nameOfTradition.text = nameTradition
 
-                Glide
-                    .with(this)
-                    .load(Uri.parse("https://www.zharar.com/uploads/posts/2019-07/1562943367_otba.jpg"))
-                    .fitCenter()
-                    .into(binding.imTradition)
+                when (nameTradition) {
+                    "Жарапазан" -> {
+                        binding.imTradition.setImageResource(R.drawable.jarapazan)
+                    }
+                    "Наурыз той" -> {
+                        binding.imTradition.setImageResource(R.drawable.nauryz_toi)
+                    }
+                    "Тұсаукесер" -> {
+                        binding.imTradition.setImageResource(R.drawable.tusaykeser)
+                    }
+                    "Келін түсіру" -> {
+                        binding.imTradition.setImageResource(R.drawable.kelin_tusiry)
+                    }
+                    else -> {
+                        Glide
+                            .with(this)
+                            .load(Uri.parse("${TraditionsData.imageUrl}${tradition.image}"))
+                            .fitCenter()
+                            .into(binding.imTradition)
+                    }
+                }
+
             }
         }
 
