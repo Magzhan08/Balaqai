@@ -92,6 +92,14 @@ class QuestionActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }
+        binding.maglumatBtn.setOnClickListener {
+            val intent = InfoTrActivity.newIntent(this@QuestionActivity,"","")
+            startActivity(intent)
+        }
+        binding.beineBtn.setOnClickListener {
+            val intent = VideoTrActivity.newIntent(this@QuestionActivity,"","")
+            startActivity(intent)
+        }
 
     }
 

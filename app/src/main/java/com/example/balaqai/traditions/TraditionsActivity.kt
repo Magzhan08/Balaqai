@@ -186,7 +186,7 @@ class TraditionsActivity : AppCompatActivity(), TraditionsGroupAdapter.Listener 
 
     private fun selectedSettings() {
         binding.imBell.setOnClickListener {
-            Toast.makeText(this, "Bell clicked", Toast.LENGTH_SHORT).show()
+
         }
         binding.imExit.setOnClickListener {
             sharePref.edit().clear().apply()
@@ -195,10 +195,10 @@ class TraditionsActivity : AppCompatActivity(), TraditionsGroupAdapter.Listener 
             finish()
         }
         binding.imGuitar.setOnClickListener {
-            Toast.makeText(this, "Guitar clicked", Toast.LENGTH_SHORT).show()
+
         }
         binding.imSound.setOnClickListener {
-            Toast.makeText(this, "Sound clicked", Toast.LENGTH_SHORT).show()
+
         }
     }
 

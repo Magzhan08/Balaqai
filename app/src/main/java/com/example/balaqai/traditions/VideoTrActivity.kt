@@ -51,6 +51,15 @@ class VideoTrActivity : AppCompatActivity() {
             val intent = QuestionActivity.newIntent(this@VideoTrActivity,"SOMETHING")
             startActivity(intent)
         }
+
+        binding.quesAnsBtn.setOnClickListener {
+            val intent = QuestionActivity.newIntent(this@VideoTrActivity,"SOMETHING")
+            startActivity(intent)
+        }
+        binding.maglumatBtn.setOnClickListener {
+            val intent = InfoTrActivity.newIntent(this@VideoTrActivity,nameTradition.toString(),nameOfTrGroup.toString())
+            startActivity(intent)
+        }
     }
     companion object{
         private const val EXTRA_NAME_OF_TRADITION = "nameTrad"

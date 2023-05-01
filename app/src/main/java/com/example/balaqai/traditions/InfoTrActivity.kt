@@ -56,6 +56,14 @@ class InfoTrActivity : AppCompatActivity() {
             val intent = VideoTrActivity.newIntent(this@InfoTrActivity,nameTradition.toString(),nameOfTrGroup.toString())
             startActivity(intent)
         }
+        binding.beineBtn.setOnClickListener {
+            val intent = VideoTrActivity.newIntent(this@InfoTrActivity,nameTradition.toString(),nameOfTrGroup.toString())
+            startActivity(intent)
+        }
+        binding.quesAnsBtn.setOnClickListener {
+            val intent = QuestionActivity.newIntent(this@InfoTrActivity,nameTradition.toString())
+            startActivity(intent)
+        }
 
             initVpAdapter()
 
